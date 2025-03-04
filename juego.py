@@ -33,7 +33,7 @@ def ejecutar_juego():
 
             jugador.dibujar(pantalla)
             dibujar_plataformas(pantalla, plataformas, offset_x)
-
+    
         pygame.display.flip()
         clock.tick(60)
 

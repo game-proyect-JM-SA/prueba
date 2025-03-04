@@ -1,5 +1,5 @@
 import pygame
-
+from config import NEGRO
 def crear_plataformas():
     return [
         pygame.Rect(50, 500, 700, 20),
@@ -12,4 +12,4 @@ def crear_plataformas():
 def dibujar_plataformas(pantalla, plataformas, offset_x):
     for plataforma in plataformas:
         plataforma_desplazada = plataforma.move(-offset_x, 0)
-        pygame.draw.rect(pantalla, (0, 255, 0), plataforma_desplazada)
+        pygame.draw.rect(pantalla, NEGRO, plataforma_desplazada)
