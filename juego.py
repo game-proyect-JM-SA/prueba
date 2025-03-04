@@ -11,6 +11,7 @@ from enemy import Enemy
 
 x=2
 y=400
+vol = 0.2
 
 x_enemy=10
 y_enemy=200
@@ -26,7 +27,7 @@ def ejecutar_juego():
     try:
         pygame.mixer.music.load("Assets/Music/lost-in-dreams-abstract-chill-downtempo-cinematic-future-beats-270241.mp3")
         pygame.mixer.music.play(-1)  # Reproduce música de fondo en bucle
-        pygame.mixer.music.set_volume(1.0)  # Asegurarse de que el volumen esté al máximo
+        pygame.mixer.music.set_volume(vol)  # Asegurarse de que el volumen esté al máximo
     except pygame.error as e:
         print("No se pudo cargar la música:", e)
 
