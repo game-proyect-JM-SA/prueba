@@ -1,0 +1,9 @@
+# Ignorar archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Ignorar archivos de Windows con Zone.Identifier
+*.Zone.Identifier
+
+# Ignorar archivos de audio específicos (opcional, si no quieres subir el mp3)
+future-beats-270241.mp3
