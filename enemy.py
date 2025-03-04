@@ -11,7 +11,7 @@ class Enemy:
         self.rect = pygame.Rect(self.x-offset_x, self.y, 70, 70)
         self.gravedad = 1
         self.en_suelo = False
-        ruta_imagen = os.path.join("assets", "images", "enemy.jpg")
+        ruta_imagen = os.path.join("Assets", "Images", "enemy.jpg")
         self.imagen = pygame.image.load(ruta_imagen).convert_alpha()
         self.imagen = pygame.transform.scale(self.imagen, (self.rect.width,self.rect.height))
         

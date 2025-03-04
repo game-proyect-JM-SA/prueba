@@ -8,7 +8,7 @@ class Jugador:
         self.vel_y = 0
         self.gravedad = 1
         self.en_suelo = False
-        ruta_imagen = os.path.join("assets", "images", "metal_slug.png")
+        ruta_imagen = os.path.join("Assets", "Images", "metal_slug.png")
         self.imagen = pygame.image.load(ruta_imagen).convert_alpha()
         self.imagen = pygame.transform.scale(self.imagen, (50, 50))
 
