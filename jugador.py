@@ -39,3 +39,10 @@ class Jugador:
 
     def dibujar(self, pantalla):
         pantalla.blit(self.imagen, self.rect.topleft)
+        
+    def return_menu(self, teclas):
+        if teclas[pygame.K_ESCAPE]:
+            return True
+        return False
+    
+  
