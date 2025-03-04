@@ -1,4 +1,6 @@
 import pygame
+import sys
+pygame.mixer.init()  # Inicializar el módulo de música
 from config import pantalla, clock, ANCHO, ALTO, GRIS
 from jugador import Jugador
 from plataformas import crear_plataformas, dibujar_plataformas, create_insolated_platform, draw_one_platform
@@ -20,6 +22,14 @@ def reset_position(offset):
 def ejecutar_juego():
     
     estado = MENU  # 🔹 Empezamos en el menú
+
+    try:
+        pygame.mixer.music.load("assets/Music/lost-in-dreams-abstract-chill-downtempo-cinematic-future-beats-270241.mp3")
+        pygame.mixer.music.play(-1)  # Reproduce música de fondo en bucle
+        pygame.mixer.music.set_volume(1.0)  # Asegurarse de que el volumen esté al máximo
+    except pygame.error as e:
+        print("No se pudo cargar la música:", e)
+
     jugador = Jugador(ANCHO // x, y)
     plataformas = crear_plataformas()
     
