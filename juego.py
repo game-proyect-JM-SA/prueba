@@ -58,6 +58,8 @@ def ejecutar_juego():
             offset_x=0
         elif estado == JUEGO:
             
+            fondos = pygame.image.load("Assets/Images/fondo.jpg")
+            pantalla.blit(fondos, (0, 0))  # Posición (0, 0) es la esquina superior izquierda
             enemy = Enemy(ANCHO // x_enemy, y_enemy,offset_x)
             teclas = pygame.key.get_pressed()
             offset_x = jugador.mover(teclas, offset_x)
