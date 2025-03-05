@@ -23,7 +23,7 @@ def reset_position(offset):
 def ejecutar_juego():
     
     estado = MENU  # 🔹 Empezamos en el menú
-
+# codigo de musica
     try:
         pygame.mixer.music.load("Assets/Music/lost-in-dreams-abstract-chill-downtempo-cinematic-future-beats-270241.mp3")
         pygame.mixer.music.play(-1)  # Reproduce música de fondo en bucle
@@ -57,10 +57,14 @@ def ejecutar_juego():
             jugador=reset_position(offset_x)
             offset_x=0
         elif estado == JUEGO:
-            
+
+            #codigo para el fondo
             fondos = pygame.image.load("Assets/Images/fondo.jpg")
             pantalla.blit(fondos, (0, 0))  # Posición (0, 0) es la esquina superior izquierda
-            enemy = Enemy(ANCHO // x_enemy, y_enemy,offset_x)
+            
+            enemy = Enemy(ANCHO // x_enemy, y_enemy,offset_x) #codigo para enemigo
+
+            #movimiento del jugador
             teclas = pygame.key.get_pressed()
             offset_x = jugador.mover(teclas, offset_x)
             jugador.saltar(teclas)
@@ -69,15 +73,28 @@ def ejecutar_juego():
             
             jugador.dibujar(pantalla)
             dibujar_plataformas(pantalla, plataformas, offset_x)
-            
-            
+
+            #espada
+            espada_imagen = pygame.image.load("Assets/Images/espada.jpg")
+            espada_rect = espada_imagen.get_rect()
+            espada_rect.topleft = (400, 300)
+            def recoger_espada(self, espada_rect):
+                if self.rect.colliderect(espada_rect):  # Detecta si el jugador toca la espada
+                    self.tiene_espada = True
+                    return True
+                return False
+            # Dibujar la espada (si no ha sido recogida)
+            if not jugador.tiene_espada:
+                pantalla.blit(espada_imagen, espada_rect)
+
+            #movimiento del enemigo
             enemy.colision_con_plataformas(plataformas)
             enemy.aplicar_gravedad()
             enemy.dibujar(pantalla)
 
             
                 
-            
+            #muerte del jugador
             draw_one_platform(pantalla, death_sone)
             death=jugador.rect.colliderect(death_sone) or jugador.rect.colliderect(enemy.rect)
             if death:

@@ -11,6 +11,7 @@ class Jugador:
         ruta_imagen = os.path.join("Assets", "Images", "metal_slug.png")
         self.imagen = pygame.image.load(ruta_imagen).convert_alpha()
         self.imagen = pygame.transform.scale(self.imagen, (50, 50))
+        self.tiene_espada = False #init para saber si tiene espada
 
     def mover(self, teclas, offset_x):
         if teclas[pygame.K_LEFT]:
